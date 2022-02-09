@@ -1,0 +1,25 @@
+{% set cartfilm = [
+    {
+        name: 'Моана',
+        image: 'moana.jpg',
+        option: 'Бесплатно',
+        link: '#',
+    },
+    {
+        name: 'Моана',
+        image: 'moana.jpg',
+        option: 'Бесплатно',
+        link: '#',
+    },
+] %}
+
+<div class="relative cart w-max rounded-3xl">
+    {% for item in cartfilm %} 
+        <div class="w-20 h-32" data-background-image="{{ 'assets/images/image/{{ item.image }}'|theme }}"></div>
+        <div class="grid justify-center">
+            <span class="text-lg text-black">{{ item.name }}</span>
+            <span class="text-sm text-gray-400">{{ item.option }}</span>
+        </div>
+        <a class="before:absolute before:inset-0" href="{{ item.link }}"></a>
+    {% endfor %}
+</div>

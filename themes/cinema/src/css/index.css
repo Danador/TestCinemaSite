@@ -1,0 +1,5 @@
+@import "tailwindcss/base";
+@import "./global.css";
+@import "swiper/swiper-bundle.css";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

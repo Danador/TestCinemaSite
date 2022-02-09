@@ -1,0 +1,52 @@
+==
+<?
+function onStart()
+{
+    $this['backendUrl'] = System::checkDebugMode() ? Backend::url('/') : null;
+}
+?>
+==
+
+{% set navbar = [
+    {
+        title: 'Новинки',
+        link: '#'
+    },
+    {
+        title: 'Фильмы',
+        link: '#'
+    },
+    {
+        title: 'Сериалы',
+        link: '#'
+    },
+    {
+        title: 'Мультфильмы',
+        link: '#'
+    },
+] %}
+
+<header class="sticky top-0 h-16 bg-black grid-in-header">
+    <div class="container flex justify-between h-full px-10 mx-auto">
+        <nav class="flex items-center h-full space-x-4 ">
+            <button class="relative text-3xl w-max group">
+                <span class="transition-colors duration-300 text-selago group-hover:text-red-600">Кино</span><span class="text-red-600 transition-colors duration-300 group-hover:text-selago">BOOM</span>
+                <a class="before:absolute before:inset-0" href="/"></a>
+            </button>
+            <ul class="grid items-center h-full grid-flow-col gap-x-4 max-w-max">
+                {% for item in navbar %}
+                    <li class="p-1 text-lg transition-colors duration-300 group text-selago hover:text-black hover:bg-selago rounded-2xl">
+                        <a href="{{ item.link }}">{{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <div class="grid items-center h-full grid-flow-col">
+            <button class="search">
+                <svg class="text-white w-7 h-7">
+                    <use xlink:href="{{ 'assets/images/svg/all-icons.svg'|theme }}#search"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>

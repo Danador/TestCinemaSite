@@ -1,0 +1,15 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body class="grid min-h-screen bg-slate-200 grid-areas-layout grid-cols-full grid-rows-a1a">
+        {% partial 'site/header' %}
+        <main class="grid-in-main">
+            {% page %}
+        </main>
+        {% partial 'site/footer' %}
+    </body>
+</html>
