@@ -1,3 +1,12 @@
 html {
   scroll-behavior: smooth;
 }
+
+.lozad {
+  opacity: 0;
+  transition: all .3s;
+}
+
+.lozad[data-loaded="true"] {
+  opacity: 1;
+}
