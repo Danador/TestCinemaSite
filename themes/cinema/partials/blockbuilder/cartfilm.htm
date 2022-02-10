@@ -2,24 +2,106 @@
     {
         name: 'Моана',
         image: 'moana.jpg',
+        year: '2019',
+        rating: '7.8',
+        genre: 'Семейный',
+        option: 'Бесплатно',
+        link: '#',
+    },
+    {
+        name: 'Железный Человек',
+        image: 'iron-man.jpg',
+        year: '2010',
+        rating: '8.8',
+        recomended: true,
+        genre: 'Боевик',
+        option: 'Платно',
+        link: '#',
+    },
+    {
+        name: 'Человек Волк',
+        image: 'wolfman.jpg',
+        year: '2014',
+        rating: '6.5',
+        genre: 'Ужасы',
+        option: 'Подписка',
+        link: '#',
+    },
+    {
+        name: 'Мадагаскар',
+        image: 'madagascar.jpg',
+        year: '2005',
+        rating: '8.0',
+        recomended: true,
+        genre: 'Семейный',
         option: 'Бесплатно',
         link: '#',
     },
     {
         name: 'Моана',
         image: 'moana.jpg',
+        year: '2019',
+        rating: '7.8',
+        genre: 'Семейный',
+        option: 'Бесплатно',
+        link: '#',
+    },
+    {
+        name: 'Железный Человек',
+        image: 'iron-man.jpg',
+        year: '2010',
+        rating: '8.8',
+        recomended: true,
+        genre: 'Боевик',
+        option: 'Платно',
+        link: '#',
+    },
+    {
+        name: 'Человек Волк',
+        image: 'wolfman.jpg',
+        year: '2014',
+        rating: '6.5',
+        genre: 'Ужасы',
+        option: 'Подписка',
+        link: '#',
+    },
+    {
+        name: 'Мадагаскар',
+        image: 'madagascar.jpg',
+        year: '2005',
+        rating: '8.0',
+        recomended: true,
+        genre: 'Семейный',
         option: 'Бесплатно',
         link: '#',
     },
 ] %}
 
-<div class="relative cart w-max rounded-3xl">
-    {% for item in cartfilm %} 
-        <div class="w-20 h-32" data-background-image="{{ 'assets/images/image/{{ item.image }}'|theme }}"></div>
-        <div class="grid justify-center">
-            <span class="text-lg text-black">{{ item.name }}</span>
-            <span class="text-sm text-gray-400">{{ item.option }}</span>
+{% for item in cartfilm %}
+<div class="relative grid h-full max-w-max transition-all duration-200 hover:scale-[1.03] group grid-rows-a1 cart rounded-3xl">
+    <div 
+        class="relative w-40 transition-all duration-300 h-52 before:absolute before:inset-0 group-hover:before:bg-black/50 before:rounded-t-xl" >
+        <img class="w-full h-full rounded-t-xl" src="{{ 'assets/images/image/{{ item.image }}'|theme }}">
+        <div class="absolute hidden text-xl text-blue-500 transition-all duration-300 left-2 top-1/2 group-hover:grid">
+            <span>Рейтинг</span>
+            <span>{{ item.rating }}</span>
         </div>
-        <a class="before:absolute before:inset-0" href="{{ item.link }}"></a>
-    {% endfor %}
+        {% if item.recomended == true %}
+            <div class="absolute top-0 right-0 items-center justify-center hidden w-8 h-8 text-xl text-white bg-red-700 rounded-tr-xl rounded-bl-xl group-hover:flex">
+                <span>R</span>
+            </div>
+        {% endif %}
+    </div>
+    <div class="grid h-full p-2 group-hover:text-white grid-rows-1a group-hover:bg-black/50 rounded-b-xl">
+        <div>
+            <p>{{ item.name }}</p>
+            <span class="text-xs text-gray-400">{{ item.year }},{{ item.genre }}</span>
+        </div>
+        <p 
+            class="{% if item.option=='Платно' %} group-hover:text-red-700 {% elseif item.option=='Подписка'%} group-hover:text-blue-500{% endif %}"
+        >
+        {{ item.option }}</p>
+    </div>
+    <a class="before:absolute before:inset-0" href="/"></a>
 </div>
+{% endfor %}

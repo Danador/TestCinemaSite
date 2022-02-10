@@ -3,6 +3,21 @@ url = "/"
 layout = "default"
 
 ==
+{% set swipers = [
+    {
+        swiperName: 'Новинки'
+    },
+    {
+        swiperName: 'Подборка'
+    },
+    {
+        swiperName: 'Лучшее'
+    },
+    {
+        swiperName: 'Скоро'
+    }
+] %}
+
 {% set sidebar = [
     {
         title: 'Дата выпуска'
@@ -20,9 +35,9 @@ layout = "default"
 
 <section>
     <div class="container px-10 mx-auto">
-        <div class="flex space-x-5 bg-white rounded-3xl">
-            <div class="px-5 py-1 border-r-2 border-gray-300 w-max sidebar">
-                <ul class="grid gap-y-2">
+        <div class="relative grid bg-white rounded-b-3xl grid-cols-a1">
+            <div class="p-5 border-r-2 border-gray-300 w-max sidebar">
+                <ul class="sticky top-0 grid pt-20 -mt-20 gap-y-2 h-max">
                     {% for item in sidebar %}
                         <li>
                             <button class="text-lg transition-transform duration-300 hover:scale-105 text-black/50 hover:text-black">{{ item.title }}</button>
@@ -30,8 +45,16 @@ layout = "default"
                     {% endfor %}
                 </ul>
             </div>
-            <div class="grid gap-x-5 grid-cols-[repeat(4, minmax(200px, 1fr))]">
-                {% partial 'blockbuilder/cartfilm' %}
+                <div class="w-full overflow-hidden">
+                    {% for item in swipers %}
+                        <div class="w-full p-5 swiper swiper_film">
+                            <h2 class="text-xl font-semibold">{{ item.swiperName }}</h2>
+                            <div class="grid grid-flow-col gap-4 mt-2 h-max swiper-wrapper">
+                                {% partial 'blockbuilder/cartfilm' %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
