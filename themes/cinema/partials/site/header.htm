@@ -26,7 +26,7 @@ function onStart()
     },
 ] %}
 
-<header class="sticky top-0 h-16 bg-black grid-in-header">
+<header class="sticky top-0 z-10 h-16 bg-black grid-in-header">
     <div class="container flex justify-between h-full px-10 mx-auto">
         <nav class="flex items-center h-full space-x-4 ">
             <button class="relative text-3xl w-max group">
@@ -41,11 +41,22 @@ function onStart()
                 {% endfor %}
             </ul>
         </nav>
-        <div class="grid items-center h-full grid-flow-col">
-            <button class="search">
-                <svg class="text-white w-7 h-7">
+        <div
+            x-data="{ search: false }" 
+            class="grid items-center h-full grid-flow-col gap-x-4">
+            <input class="p-1.5 rounded-lg outline-none" x-show="search" type="search" placeholder="Что вы хотите найти?">
+            <button
+                @click="search = !search" 
+                class="p-1 transition-colors duration-300 search group hover:bg-selago rounded-xl">
+                <svg class="text-white w-7 h-7 group-hover:text-black">
                     <use xlink:href="{{ 'assets/images/svg/all-icons.svg'|theme }}#search"></use>
                 </svg>
+            </button>
+            <button class="relative p-1 transition-colors duration-300 account search group hover:bg-selago rounded-xl">
+                <svg class="text-white w-7 h-7 group-hover:text-black">
+                    <use xlink:href="{{ 'assets/images/svg/all-icons.svg'|theme }}#account"></use>
+                </svg>
+                <a class="before:absolute before:inset-0" href="/"></a>
             </button>
         </div>
     </div>
