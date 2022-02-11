@@ -1,7 +1,7 @@
 {% set cartfilm = [
     {
         name: 'Моана',
-        image: 'moana.jpg',
+        image: 'assets/images/image/moana.jpg',
         year: '2019',
         rating: '7.8',
         genre: 'Семейный',
@@ -10,7 +10,7 @@
     },
     {
         name: 'Железный Человек',
-        image: 'iron-man.jpg',
+        image: 'assets/images/image/iron-man.jpg',
         year: '2010',
         rating: '8.8',
         recomended: true,
@@ -20,7 +20,7 @@
     },
     {
         name: 'Человек Волк',
-        image: 'wolfman.jpg',
+        image: 'assets/images/image/wolfman.jpg',
         year: '2014',
         rating: '6.5',
         genre: 'Ужасы',
@@ -29,7 +29,7 @@
     },
     {
         name: 'Мадагаскар',
-        image: 'madagascar.jpg',
+        image: 'assets/images/image/madagascar.jpg',
         year: '2005',
         rating: '8.0',
         recomended: true,
@@ -39,7 +39,7 @@
     },
     {
         name: 'Моана',
-        image: 'moana.jpg',
+        image: 'assets/images/image/moana.jpg',
         year: '2019',
         rating: '7.8',
         genre: 'Семейный',
@@ -48,7 +48,7 @@
     },
     {
         name: 'Железный Человек',
-        image: 'iron-man.jpg',
+        image: 'assets/images/image/iron-man.jpg',
         year: '2010',
         rating: '8.8',
         recomended: true,
@@ -58,7 +58,7 @@
     },
     {
         name: 'Человек Волк',
-        image: 'wolfman.jpg',
+        image: 'assets/images/image/wolfman.jpg',
         year: '2014',
         rating: '6.5',
         genre: 'Ужасы',
@@ -67,7 +67,7 @@
     },
     {
         name: 'Мадагаскар',
-        image: 'madagascar.jpg',
+        image: 'assets/images/image/madagascar.jpg',
         year: '2005',
         rating: '8.0',
         recomended: true,
@@ -81,7 +81,7 @@
 <div class="relative grid h-full max-w-max transition-all duration-200 hover:scale-[1.03] group grid-rows-a1 cart rounded-3xl">
     <div 
         class="relative w-40 transition-all duration-300 h-52 before:absolute before:inset-0 group-hover:before:bg-black/50 before:rounded-t-xl" >
-        <img class="w-full h-full rounded-t-xl" src="{{ 'assets/images/image/{{ item.image }}'|theme }}">
+        <img class="w-full h-full rounded-t-xl" src="{{ item.image |theme }}">
         <div class="absolute hidden text-xl text-blue-500 transition-all duration-300 left-2 top-1/2 group-hover:grid">
             <span>Рейтинг</span>
             <span>{{ item.rating }}</span>
